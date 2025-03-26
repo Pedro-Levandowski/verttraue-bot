@@ -14,14 +14,10 @@ app.listen(PORT, () => {
 
 venom
   .create({
-    headless: true,
-    browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
-    executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+    browserPathExecutable: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
   })
-  .then((client) => start(client))
-  .catch((erro) => {
-    console.error('Erro ao iniciar o Venom:', erro);
-  });
+  .then((client) => start(client));
+
 
 function start(client) {
   client.onMessage((message) => {

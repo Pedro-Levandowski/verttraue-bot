@@ -14,14 +14,13 @@ app.listen(PORT, () => {
 
 venom
   .create({
-    browserPathExecutable: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+    session: 'bot-session', // nome da sessão
+    browserArgs: ['--no-sandbox'],
   })
   .then((client) => start(client))
-  .catch((erro) => {
-    console.log('Erro ao iniciar o Venom:', erro);
+  .catch((err) => {
+    console.error('Erro ao iniciar o Venom:', err);
   });
-
-
 
 function start(client) {
   client.onMessage((message) => {

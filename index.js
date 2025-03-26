@@ -12,7 +12,12 @@ app.listen(PORT, () => {
   console.log(`Servidor HTTP ativo na porta ${PORT}`);
 });
 
-venom.create().then((client) => start(client));
+venom
+  .create({
+    headless: true,
+    browserArgs: ['--no-sandbox'],
+  })
+  .then((client) => start(client));
 
 function start(client) {
   client.onMessage((message) => {

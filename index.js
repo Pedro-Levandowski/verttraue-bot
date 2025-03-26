@@ -3,18 +3,20 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Rota de "ping" para o UptimeRobot manter o bot online
+// Rota de ping para manter o bot acordado
 app.get('/ping', (req, res) => {
   res.send('pong');
 });
 
+// Inicia o servidor Express
 app.listen(PORT, () => {
   console.log(`Servidor HTTP ativo na porta ${PORT}`);
 });
 
+// Inicia a sessão do Venom
 venom
   .create({
-    session: 'bot-session', // nome da sessão
+    session: 'verttraue-session',
     browserArgs: ['--no-sandbox'],
   })
   .then((client) => start(client))
@@ -22,6 +24,7 @@ venom
     console.error('Erro ao iniciar o Venom:', err);
   });
 
+// Função principal do bot
 function start(client) {
   client.onMessage((message) => {
     const msg = message.body.toLowerCase();
@@ -54,9 +57,9 @@ function start(client) {
       const dia = agora.getDay(); // 0 = domingo, 1 = segunda, ..., 6 = sábado
 
       const dentroDoHorario =
-        dia >= 1 && dia <= 5 && // segunda a sexta
-        (hora > 10 || (hora === 10 && minutos >= 30)) && // após 10h30
-        hora < 18; // antes das 18h
+        dia >= 1 && dia <= 5 &&
+        (hora > 10 || (hora === 10 && minutos >= 30)) &&
+        hora < 18;
 
       if (dentroDoHorario) {
         client.sendText(

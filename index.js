@@ -16,7 +16,11 @@ venom
   .create({
     browserPathExecutable: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
   })
-  .then((client) => start(client));
+  .then((client) => start(client))
+  .catch((erro) => {
+    console.log('Erro ao iniciar o Venom:', erro);
+  });
+
 
 
 function start(client) {

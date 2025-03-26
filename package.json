@@ -1,16 +1,17 @@
 {
   "name": "verttraue-bot",
   "version": "1.0.0",
-  "description": "Bot do WhatsApp da loja Verttraue",
+  "description": "Chatbot do WhatsApp para a loja Verttraue - joias em prata 925",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [],
+  "keywords": ["whatsapp", "chatbot", "venom", "verttraue", "joias"],
   "author": "Verttraue",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "venom-bot": "^5.0.2",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "venom-bot": "^5.0.2"
   }
 }

@@ -9,7 +9,6 @@
   "keywords": ["whatsapp", "chatbot", "venom", "verttraue", "joias"],
   "author": "Verttraue",
   "license": "MIT",
-  "type": "module",
   "dependencies": {
     "express": "^4.18.2",
     "venom-bot": "^5.0.2"

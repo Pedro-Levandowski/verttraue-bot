@@ -13,11 +13,28 @@ app.listen(PORT, () => {
   console.log(`Servidor HTTP ativo na porta ${PORT}`);
 });
 
-// Inicia a sessão do Venom
+// Inicia a sessão do Venom em modo headless
 venom
   .create({
     session: 'verttraue-session',
-    browserArgs: ['--no-sandbox'],
+    browserArgs: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--headless=new',
+      '--disable-gpu',
+      '--disable-dev-shm-usage',
+      '--disable-extensions',
+      '--disable-background-networking',
+      '--disable-sync',
+      '--metrics-recording-only',
+      '--mute-audio',
+      '--no-first-run',
+      '--safebrowsing-disable-auto-update',
+      '--disable-default-apps',
+      '--disable-translate',
+      '--hide-scrollbars',
+      '--disable-notifications'
+    ]
   })
   .then((client) => start(client))
   .catch((err) => {

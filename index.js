@@ -13,10 +13,11 @@ app.listen(PORT, () => {
   console.log(`Servidor HTTP ativo na porta ${PORT}`);
 });
 
-// Inicia a sessão do Venom em modo headless
+// Inicia a sessão do Venom em modo headless + Chromium leve
 venom
   .create({
     session: 'verttraue-session',
+    executablePath: './chromium/chrome', // CAMINHO PARA O CHROMIUM PORTÁTIL
     browserArgs: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -71,7 +72,7 @@ function start(client) {
       const agora = new Date();
       const hora = agora.getHours();
       const minutos = agora.getMinutes();
-      const dia = agora.getDay(); // 0 = domingo, 1 = segunda, ..., 6 = sábado
+      const dia = agora.getDay();
 
       const dentroDoHorario =
         dia >= 1 && dia <= 5 &&
